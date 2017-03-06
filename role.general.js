@@ -48,7 +48,6 @@ const roleGeneral = {
     }
 
     if (creep.room.memory.phase === 1 || creep.room.memory.phase === 2) {
-      actions.creep.healLowStructures(creep);
       if(!creep.memory.stockpiling) {
         actions.creep.harvest(creep);
       }
@@ -67,6 +66,7 @@ const roleGeneral = {
       }
       
       // Carry is max and we're ready to work
+      actions.creep.healLowStructures(creep);
       actions.creep.doWork(creep);
 
     }
