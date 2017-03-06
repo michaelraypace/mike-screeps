@@ -27,13 +27,12 @@ actions.creep.healLowStructures = function(creep) {
 
 }
 
-actions.creep.mine = function(creep, mineIndex) {
-  const containers = actions.creep.findContainersInRoom(creep)
-  if(creep.pos.getRangeTo(containers[mineIndex]) == 0) { 
+actions.creep.mine = function(creep) {
+  if(creep.pos.getRangeTo(Game.getObjectById(creep.memory.container.id)) == 0) { 
       var source = creep.pos.findClosestByPath(FIND_SOURCES); 
       creep.harvest(source); 
   } else { 
-      creep.moveTo(containers[mineIndex]); 
+      creep.moveTo(Game.getObjectById(creep.memory.container.id)); 
   } 
 }
 

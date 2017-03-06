@@ -28,11 +28,8 @@ phaseConfig.automate = function(room, roomActions, roomSpawn) {
     const upgraderCreeps = _.filter(roomCreeps, (creep) => (creep.memory.role === 'upgrader'));
     const minerCreeps = _.filter(roomCreeps, (creep) => (creep.memory.role === 'miner'));
     if(!room.memory.containers) {
-      containers = roomActions.findContainersInRoom;
-      room.memory.containers = [];
-      if (containers.length === 1) {
-        room.memory.containers.push(containers[0].id);
-      }
+      containers = roomActions.findContainersInRoom(room);
+      room.memory.containers = containers;
     }
     if (generalCreeps.length < 3) {
       const newGeneralCreep = Game.spawns[roomSpawn[0].name].createCreep(generalCreep, undefined, {role: 'general'});
@@ -43,7 +40,7 @@ phaseConfig.automate = function(room, roomActions, roomSpawn) {
       console.log(`Spawning upgrader creep: ${newUpgraderCreep}`);
     }
     if (minerCreeps.length < 1) {
-      const newMinerCreep = Game.spawns[roomSpawn[0].name].createCreep(minerCreep, undefined, {role: 'miner'});
+      const newMinerCreep = Game.spawns[roomSpawn[0].name].createCreep(minerCreep, undefined, {role: 'miner', container: room.memory.containers[0]});
       console.log(`Spawning miner creep: ${newMinerCreep}`);
     }
   }

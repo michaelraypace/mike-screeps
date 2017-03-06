@@ -25,6 +25,7 @@ module.exports.loop = function () {
     //console.log(JSON.stringify(roomSpawns));
     if(roomSpawn.length > 0) {
 
+
       // find room phase
       const roomPhase = roomActions.calcPhase(room);
       
