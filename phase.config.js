@@ -61,7 +61,7 @@ phaseConfig.automate = function(room, roomActions, roomSpawn) {
       console.log(`Spawning upgrader creep: ${newUpgraderCreep}`);
     }
     if (minerCreeps.length < 1) {
-      const newMinerCreep = Game.spawns[roomSpawn[0].name].createCreep(minerCreep, undefined, {role: 'miner'});
+      const newMinerCreep = Game.spawns[roomSpawn[0].name].createCreep(minerCreep, undefined, {role: 'miner', container: room.memory.containers[0]});
       console.log(`Spawning miner creep: ${newMinerCreep}`);
     }
   }
