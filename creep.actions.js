@@ -59,8 +59,7 @@ actions.creep.harvest = function(creep) {
 
 }
 
-actions.general = {};
-actions.general.doWork = function(creep) {
+actions.creep.doWork = function(creep) {
   
   const buildTargets = creep.room.find(FIND_CONSTRUCTION_SITES);
   const closestBuildTarget = creep.pos.findClosestByPath(buildTargets);
@@ -103,7 +102,7 @@ actions.general.doWork = function(creep) {
   }
 }
 
-actions.general.harvestClosestResource = function(creep) {
+actions.creep.harvestClosestResource = function(creep) {
   
   const sources = creep.room.find(FIND_SOURCES);
   const closestSource = creep.pos.findClosestByPath(sources);
@@ -120,8 +119,5 @@ actions.general.harvestClosestResource = function(creep) {
   }
 
 }
-
-actions.moo = function() { console.log('moo'); }
-actions.sayName = function(creep) { console.log(creep.name) };
 
 module.exports = actions;

@@ -27,7 +27,7 @@ const roleGeneral = {
       
       // Harvest them resources
       if(!creep.memory.stockpiling) {
-        actions.general.harvestClosestResource(creep);
+        actions.creep.harvestClosestResource(creep);
       }
 
       // Unit has maxed carry
@@ -44,7 +44,7 @@ const roleGeneral = {
       }
       
       // Carry is max and we're ready to work
-      actions.general.doWork(creep);
+      actions.creep.doWork(creep);
     }
 
     if (creep.room.memory.phase === 1 || creep.room.memory.phase === 2) {
@@ -67,7 +67,7 @@ const roleGeneral = {
       }
       
       // Carry is max and we're ready to work
-      actions.general.doWork(creep);
+      actions.creep.doWork(creep);
 
     }
     
@@ -91,7 +91,7 @@ const roleGeneral = {
       }
       
       // Carry is max and we're ready to work
-      actions.general.doWork(creep);
+      actions.creep.doWork(creep);
       
     }
   }
